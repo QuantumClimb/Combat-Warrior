@@ -1,0 +1,696 @@
+{
+  "character": "bhadran",
+  "animations": {
+    "idle": {
+      "animation": "idle",
+      "file": "bhadran_idle.png",
+      "frame_count": 4,
+      "image_size": [
+        684,
+        256
+      ],
+      "frame_size": [
+        171,
+        256
+      ],
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 171,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 171,
+          "y": 0,
+          "w": 171,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 342,
+          "y": 0,
+          "w": 171,
+          "h": 256
+        },
+        {
+          "index": 3,
+          "x": 513,
+          "y": 0,
+          "w": 171,
+          "h": 256
+        }
+      ],
+      "source": "raw/bhadran_idle_0.png"
+    },
+    "walk": {
+      "animation": "walk",
+      "file": "bhadran_walk.png",
+      "frame_count": 4,
+      "image_size": [
+        952,
+        251
+      ],
+      "frame_size": [
+        238,
+        251
+      ],
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 238,
+          "h": 251
+        },
+        {
+          "index": 1,
+          "x": 238,
+          "y": 0,
+          "w": 238,
+          "h": 251
+        },
+        {
+          "index": 2,
+          "x": 476,
+          "y": 0,
+          "w": 238,
+          "h": 251
+        },
+        {
+          "index": 3,
+          "x": 714,
+          "y": 0,
+          "w": 238,
+          "h": 251
+        }
+      ],
+      "source": "raw/bhadran_walk_2.png"
+    },
+    "high_kick": {
+      "animation": "high_kick",
+      "file": "bhadran_high_kick.png",
+      "frame_count": 3,
+      "image_size": [
+        894,
+        256
+      ],
+      "frame_size": [
+        298,
+        256
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 298,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 298,
+          "y": 0,
+          "w": 298,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 596,
+          "y": 0,
+          "w": 298,
+          "h": 256
+        }
+      ],
+      "source": "raw/bhadran_high_kick_0.png"
+    },
+    "jump": {
+      "animation": "jump",
+      "file": "bhadran_jump.png",
+      "frame_count": 4,
+      "image_size": [
+        512,
+        160
+      ],
+      "frame_size": [
+        128,
+        160
+      ],
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 160
+        },
+        {
+          "index": 1,
+          "x": 128,
+          "y": 0,
+          "w": 128,
+          "h": 160
+        },
+        {
+          "index": 2,
+          "x": 256,
+          "y": 0,
+          "w": 128,
+          "h": 160
+        },
+        {
+          "index": 3,
+          "x": 384,
+          "y": 0,
+          "w": 128,
+          "h": 160
+        }
+      ],
+      "source": "raw/bhadran_jump_1.png"
+    },
+    "crouch": {
+      "animation": "crouch",
+      "file": "bhadran_crouch.png",
+      "frame_count": 3,
+      "image_size": [
+        558,
+        227
+      ],
+      "frame_size": [
+        186,
+        227
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 186,
+          "h": 227
+        },
+        {
+          "index": 1,
+          "x": 186,
+          "y": 0,
+          "w": 186,
+          "h": 227
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 0,
+          "w": 186,
+          "h": 227
+        }
+      ],
+      "source": "raw/bhadran_crouch_0.png"
+    },
+    "high_punch": {
+      "animation": "high_punch",
+      "file": "bhadran_high_punch.png",
+      "frame_count": 3,
+      "image_size": [
+        810,
+        256
+      ],
+      "frame_size": [
+        270,
+        256
+      ],
+      "fps": 14,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 270,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 270,
+          "y": 0,
+          "w": 270,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 540,
+          "y": 0,
+          "w": 270,
+          "h": 256
+        }
+      ],
+      "source": "raw/bhadran_high_punch_0.png"
+    },
+    "low_punch": {
+      "animation": "low_punch",
+      "file": "bhadran_low_punch.png",
+      "frame_count": 3,
+      "image_size": [
+        795,
+        249
+      ],
+      "frame_size": [
+        265,
+        249
+      ],
+      "fps": 14,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 265,
+          "h": 249
+        },
+        {
+          "index": 1,
+          "x": 265,
+          "y": 0,
+          "w": 265,
+          "h": 249
+        },
+        {
+          "index": 2,
+          "x": 530,
+          "y": 0,
+          "w": 265,
+          "h": 249
+        }
+      ],
+      "source": "raw/bhadran_low_punch_0.png"
+    },
+    "low_kick": {
+      "animation": "low_kick",
+      "file": "bhadran_low_kick.png",
+      "frame_count": 3,
+      "image_size": [
+        978,
+        256
+      ],
+      "frame_size": [
+        326,
+        256
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 326,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 326,
+          "y": 0,
+          "w": 326,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 652,
+          "y": 0,
+          "w": 326,
+          "h": 256
+        }
+      ],
+      "source": "raw/bhadran_low_kick_0.png"
+    },
+    "uppercut": {
+      "animation": "uppercut",
+      "file": "bhadran_uppercut.png",
+      "frame_count": 4,
+      "image_size": [
+        780,
+        356
+      ],
+      "frame_size": [
+        195,
+        356
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 195,
+          "h": 356
+        },
+        {
+          "index": 1,
+          "x": 195,
+          "y": 0,
+          "w": 195,
+          "h": 356
+        },
+        {
+          "index": 2,
+          "x": 390,
+          "y": 0,
+          "w": 195,
+          "h": 356
+        },
+        {
+          "index": 3,
+          "x": 585,
+          "y": 0,
+          "w": 195,
+          "h": 356
+        }
+      ],
+      "source": "raw/bhadran_uppercut_0.png"
+    },
+    "sweep": {
+      "animation": "sweep",
+      "file": "bhadran_sweep.png",
+      "frame_count": 4,
+      "image_size": [
+        756,
+        112
+      ],
+      "frame_size": [
+        189,
+        112
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 189,
+          "h": 112
+        },
+        {
+          "index": 1,
+          "x": 189,
+          "y": 0,
+          "w": 189,
+          "h": 112
+        },
+        {
+          "index": 2,
+          "x": 378,
+          "y": 0,
+          "w": 189,
+          "h": 112
+        },
+        {
+          "index": 3,
+          "x": 567,
+          "y": 0,
+          "w": 189,
+          "h": 112
+        }
+      ],
+      "source": "raw/bhadran_sweep_0.png"
+    },
+    "jump_punch": {
+      "animation": "jump_punch",
+      "file": "bhadran_jump_punch.png",
+      "frame_count": 3,
+      "image_size": [
+        768,
+        189
+      ],
+      "frame_size": [
+        256,
+        189
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 189
+        },
+        {
+          "index": 1,
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 189
+        },
+        {
+          "index": 2,
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 189
+        }
+      ],
+      "source": "raw/bhadran_jump_punch_0.png"
+    },
+    "jump_kick": {
+      "animation": "jump_kick",
+      "file": "bhadran_jump_kick.png",
+      "frame_count": 3,
+      "image_size": [
+        681,
+        179
+      ],
+      "frame_size": [
+        227,
+        179
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 227,
+          "h": 179
+        },
+        {
+          "index": 1,
+          "x": 227,
+          "y": 0,
+          "w": 227,
+          "h": 179
+        },
+        {
+          "index": 2,
+          "x": 454,
+          "y": 0,
+          "w": 227,
+          "h": 179
+        }
+      ],
+      "source": "raw/bhadran_jump_kick_0.png"
+    },
+    "block": {
+      "animation": "block",
+      "file": "bhadran_block.png",
+      "frame_count": 2,
+      "image_size": [
+        420,
+        275
+      ],
+      "frame_size": [
+        210,
+        275
+      ],
+      "fps": 8,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 210,
+          "h": 275
+        },
+        {
+          "index": 1,
+          "x": 210,
+          "y": 0,
+          "w": 210,
+          "h": 275
+        }
+      ],
+      "source": "raw/bhadran_block_0.png"
+    },
+    "low_block": {
+      "animation": "low_block",
+      "file": "bhadran_low_block.png",
+      "frame_count": 2,
+      "image_size": [
+        416,
+        189
+      ],
+      "frame_size": [
+        208,
+        189
+      ],
+      "fps": 8,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 208,
+          "h": 189
+        },
+        {
+          "index": 1,
+          "x": 208,
+          "y": 0,
+          "w": 208,
+          "h": 189
+        }
+      ],
+      "source": "raw/bhadran_low_block_0.png"
+    },
+    "hit": {
+      "animation": "hit",
+      "file": "bhadran_hit.png",
+      "frame_count": 3,
+      "image_size": [
+        834,
+        256
+      ],
+      "frame_size": [
+        278,
+        256
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 278,
+          "y": 0,
+          "w": 278,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 556,
+          "y": 0,
+          "w": 278,
+          "h": 256
+        }
+      ],
+      "source": "raw/bhadran_hit_0.png"
+    },
+    "knockdown": {
+      "animation": "knockdown",
+      "file": "bhadran_knockdown.png",
+      "frame_count": 4,
+      "image_size": [
+        1084,
+        220
+      ],
+      "frame_size": [
+        271,
+        220
+      ],
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 271,
+          "h": 220
+        },
+        {
+          "index": 1,
+          "x": 271,
+          "y": 0,
+          "w": 271,
+          "h": 220
+        },
+        {
+          "index": 2,
+          "x": 542,
+          "y": 0,
+          "w": 271,
+          "h": 220
+        },
+        {
+          "index": 3,
+          "x": 813,
+          "y": 0,
+          "w": 271,
+          "h": 220
+        }
+      ],
+      "source": "raw/bhadran_knockdown_1.png"
+    },
+    "getup": {
+      "animation": "getup",
+      "file": "bhadran_getup.png",
+      "frame_count": 3,
+      "image_size": [
+        732,
+        256
+      ],
+      "frame_size": [
+        244,
+        256
+      ],
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 244,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 244,
+          "y": 0,
+          "w": 244,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 488,
+          "y": 0,
+          "w": 244,
+          "h": 256
+        }
+      ],
+      "source": "raw/bhadran_getup_0.png"
+    }
+  }
+}

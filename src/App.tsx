@@ -44,7 +44,7 @@ export default function App() {
   // Engine control state
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [simulationSpeed, setSimulationSpeed] = useState<number>(1.0);
-  const [showHitboxes, setShowHitboxes] = useState<boolean>(true);
+  const [showHitboxes, setShowHitboxes] = useState<boolean>(false);
   const [dummyMode, setDummyMode] = useState<DummyBehavior>('CPU_AI');
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
@@ -54,6 +54,7 @@ export default function App() {
 
     const scene = new CombatScene();
     sceneRef.current = scene;
+    if (import.meta.env.DEV) (window as any).__scene = scene; // dev-only debug handle
 
     scene.onStateUpdate = (engine: CombatEngine) => {
       // Throttle UI update every 2 simulation frames
@@ -196,13 +197,7 @@ export default function App() {
       {!isGameStarted && (
         <div className="absolute inset-0 z-50 bg-stone-950/95 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
           <div className="max-w-xl mx-auto space-y-6">
-            <div className="flex items-center justify-center gap-3">
-              <Flame className="w-10 h-10 text-red-600 animate-pulse" />
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-widest text-amber-400 font-mono uppercase drop-shadow-[0_4px_12px_rgba(255,200,0,0.4)]">
-                KOMBAT CORE
-              </h1>
-              <Flame className="w-10 h-10 text-red-600 animate-pulse" />
-            </div>
+            <img src="logo.png" alt="Kalari Universe" className="mx-auto w-full max-w-md drop-shadow-[0_6px_18px_rgba(255,150,0,0.35)]" />
 
             <p className="text-sm md:text-base text-stone-300 font-medium leading-relaxed">
               Decoupled 60 FPS 2D Arcade Fighting Game Prototype for Phaser 3 & Godot Porting.
@@ -334,11 +329,11 @@ export default function App() {
 
       {/* Arcade Header HUD: Health Bars & Fight Timer */}
       <header className="relative z-20 w-full px-4 pt-3 pb-2 bg-gradient-to-b from-stone-950 via-stone-900/90 to-transparent flex items-center justify-between border-b border-stone-800/60">
-        {/* P1 Sub-Zero Health Bar */}
+        {/* P1 Bhadran Health Bar */}
         <div className="flex-1 max-w-[38%]">
           <div className="flex items-center justify-between text-xs font-mono font-bold tracking-wider mb-1">
             <span className="text-cyan-400 uppercase drop-shadow-[0_0_8px_rgba(0,220,255,0.4)]">
-              SUB-ZERO
+              BHADRAN
             </span>
             <span className="text-stone-400 tabular-nums">
               {p1 ? Math.round(p1.health) : 100}%
@@ -354,22 +349,20 @@ export default function App() {
 
         {/* Center Round Timer & MK Emblem */}
         <div className="flex flex-col items-center justify-center px-4">
-          <div className="w-10 h-10 rounded-full border-2 border-amber-500/80 bg-stone-900 flex items-center justify-center text-amber-400 shadow-md">
-            <Flame className="w-5 h-5 text-amber-400" />
-          </div>
-          <div className="text-xs font-mono font-black text-amber-400 mt-0.5 tracking-widest">
-            {isPaused ? 'PAUSED' : '60 FPS'}
-          </div>
+          <img src="logo.png" alt="Kalari Universe" className="h-14 w-auto" />
+          {isPaused && (
+            <div className="text-xs font-mono font-black text-amber-400 mt-0.5 tracking-widest">PAUSED</div>
+          )}
         </div>
 
-        {/* P2 Scorpion Health Bar */}
+        {/* P2 Rudrani Health Bar */}
         <div className="flex-1 max-w-[38%]">
           <div className="flex items-center justify-between text-xs font-mono font-bold tracking-wider mb-1">
             <span className="text-stone-400 tabular-nums">
               {p2 ? Math.round(p2.health) : 100}%
             </span>
             <span className="text-amber-400 uppercase drop-shadow-[0_0_8px_rgba(255,200,0,0.4)]">
-              SCORPION
+              RUDRANI
             </span>
           </div>
           <div className="h-5 bg-stone-950 border-2 border-amber-600/80 rounded-xs overflow-hidden p-0.5 shadow-inner flex justify-end">

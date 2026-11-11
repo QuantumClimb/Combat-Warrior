@@ -15,6 +15,7 @@ import { soundEffects } from '../audio/SoundEffects';
 import { CombatEngine } from '../combat/CombatEngine';
 import { AttackType, BlockState, CombatEvent, FighterState, RawInput } from '../combat/CombatTypes';
 import { FighterLogic } from '../combat/FighterLogic';
+import { FighterSprite, preloadFighterSprites } from './FighterSprites';
 
 export interface VisualParticle {
   x: number;
@@ -58,7 +59,7 @@ export class CombatScene extends Phaser.Scene {
   private particleGraphics!: Phaser.GameObjects.Graphics;
 
   // Debug options
-  public showHitboxes: boolean = true;
+  public showHitboxes: boolean = false;
   public showPushboxes: boolean = true;
   public dummyMode: DummyBehavior = 'CPU_AI';
 
@@ -87,6 +88,9 @@ export class CombatScene extends Phaser.Scene {
     block: false,
   };
 
+  private fighterSprites: FighterSprite[] = [];
+  private background!: Phaser.GameObjects.Image;
+
   // Visual particles
   private particles: VisualParticle[] = [];
 
@@ -104,16 +108,26 @@ export class CombatScene extends Phaser.Scene {
     super({ key: 'CombatScene' });
   }
 
+  preload(): void {
+    this.load.image('background', 'background.png');
+    preloadFighterSprites(this);
+  }
+
   create(): void {
     const { width, height } = this.scale;
     this.combatEngine = new CombatEngine(width, 450);
 
     // Create graphics display layers
+    this.background = this.add.image(width / 2, height / 2, 'background').setDepth(-10);
+    this.background.setScale(Math.max(width / this.background.width, height / this.background.height));
     this.stageGraphics = this.add.graphics();
     this.fighterGraphics = this.add.graphics();
     this.projectileGraphics = this.add.graphics();
     this.particleGraphics = this.add.graphics();
     this.debugGraphics = this.add.graphics();
+
+    this.fighterSprites.forEach((s) => s.destroy());
+    this.fighterSprites = [new FighterSprite(this, 1), new FighterSprite(this, 2)];
 
     // Register keyboard keys
     if (this.input.keyboard) {
@@ -466,78 +480,7 @@ export class CombatScene extends Phaser.Scene {
     }
     this.cameras.main.setScroll(shakeX, shakeY);
 
-    // Deep Moody Sky
-    g.fillGradientStyle(0x0a0c14, 0x0a0c14, 0x1b1328, 0x1b1328, 1);
-    g.fillRect(0, 0, w, groundY);
-
-    // Ominous Moon
-    g.fillStyle(0xf5eedb, 0.85);
-    g.fillCircle(w / 2, 90, 52);
-    g.fillStyle(0x0a0c14, 0.2);
-    g.fillCircle(w / 2 + 15, 80, 48);
-
-    // Distant Temple Silhouettes & Peaks
-    g.fillStyle(0x121422, 1);
-    g.beginPath();
-    g.moveTo(0, groundY - 140);
-    g.lineTo(120, groundY - 210);
-    g.lineTo(240, groundY - 140);
-    g.lineTo(380, groundY - 240);
-    g.lineTo(520, groundY - 150);
-    g.lineTo(660, groundY - 230);
-    g.lineTo(820, groundY - 160);
-    g.lineTo(w, groundY - 220);
-    g.lineTo(w, groundY);
-    g.lineTo(0, groundY);
-    g.closePath();
-    g.fillPath();
-
-    // Stone Pillars / Courtyard Wall
-    g.fillStyle(0x1a1c28, 1);
-    g.fillRect(50, 80, 45, groundY - 80);
-    g.fillRect(w - 95, 80, 45, groundY - 80);
-
-    // Pillar Caps
-    g.fillStyle(0x282c3f, 1);
-    g.fillRect(40, 70, 65, 14);
-    g.fillRect(w - 105, 70, 65, 14);
-
-    // Flickering Flame Braziers on Pillars
-    const flameTime = this.time.now * 0.008;
-    const flameFlicker = Math.sin(flameTime * 5) * 4;
-
-    // Left Brazier Fire
-    g.fillStyle(0xff4400, 0.8);
-    g.fillCircle(72, 60 + flameFlicker, 16);
-    g.fillStyle(0xffcc00, 0.9);
-    g.fillCircle(72, 57 + flameFlicker, 9);
-
-    // Right Brazier Fire
-    g.fillStyle(0xff4400, 0.8);
-    g.fillCircle(w - 73, 60 - flameFlicker, 16);
-    g.fillStyle(0xffcc00, 0.9);
-    g.fillCircle(w - 73, 57 - flameFlicker, 9);
-
-    // Ground Slabs (Stone Floor)
-    g.fillStyle(0x242836, 1);
-    g.fillRect(0, groundY, w, h - groundY);
-
-    // Stone Slab Line Details
-    g.lineStyle(2, 0x141620, 0.8);
-    g.lineBetween(0, groundY, w, groundY);
-    g.lineBetween(0, groundY + 35, w, groundY + 35);
-    g.lineBetween(0, groundY + 75, w, groundY + 75);
-
-    // Vertical tile breaks
-    for (let x = 30; x < w; x += 110) {
-      g.lineBetween(x, groundY, x, groundY + 35);
-      g.lineBetween(x + 55, groundY + 35, x + 55, groundY + 75);
-      g.lineBetween(x + 20, groundY + 75, x + 20, h);
-    }
-
-    // Dragon Emblem Circle on floor in center
-    g.lineStyle(3, 0x3a4055, 0.4);
-    g.strokeCircle(w / 2, groundY + 45, 60);
+    // Background art covers the whole stage (see create()); nothing else to draw here.
   }
 
   /**
@@ -552,158 +495,16 @@ export class CombatScene extends Phaser.Scene {
   }
 
   /**
-   * Procedural stylized character renderer based on FSM state and direction.
+   * Draws the ground shadow; the fighter art itself is a sprite (see FighterSprites.ts).
    */
   private drawFighter(g: Phaser.GameObjects.Graphics, fighter: FighterLogic): void {
-    const { x, y, facing, color } = fighter;
-    const isP1 = fighter.id === 1;
-    const state = fighter.fsm.currentState;
-    const frame = fighter.fsm.stateFrame;
-
-    // Palette
-    const primaryColor = isP1 ? 0x00d4ff : 0xffcc00; // Cyan (Sub-Zero) vs Yellow (Scorpion)
-    const darkSuitColor = 0x14161c;
-    const skinColor = 0xd8a47f;
-    const accentColor = isP1 ? 0x88eeff : 0xffea77;
-
-    // Ground shadow
+    const { x, y } = fighter;
+    const airborne = fighter.isAirborne;
+    const ground = this.combatEngine.stageBounds.groundY;
+    const shrink = airborne ? Math.max(0.5, 1 - (ground - y) / 300) : 1;
     g.fillStyle(0x000000, 0.4);
-    const shadowWidth = state === FighterState.CROUCH ? 54 : 44;
-    g.fillEllipse(x, y + 2, shadowWidth, 12);
-
-    // Poses calculation based on state
-    let headX = x;
-    let headY = y - 135;
-    let torsoY = y - 105;
-    let armFrontX = x + facing * 18;
-    let armFrontY = y - 100;
-    let armBackX = x - facing * 12;
-    let armBackY = y - 98;
-    let legFrontX = x + facing * 10;
-    let legBackX = x - facing * 10;
-
-    // State Pose adjustments
-    if (state === FighterState.IDLE) {
-      // Breathing bob
-      const breath = Math.sin(this.time.now * 0.005) * 2;
-      headY += breath;
-      torsoY += breath;
-      armFrontX = x + facing * 20;
-      armFrontY = y - 95 + breath;
-    } else if (state === FighterState.WALK_FORWARD || state === FighterState.WALK_BACK) {
-      const walkCycle = Math.sin(this.time.now * 0.015) * 8;
-      legFrontX += walkCycle * facing;
-      legBackX -= walkCycle * facing;
-      headY += Math.abs(walkCycle * 0.4);
-    } else if (state === FighterState.CROUCH) {
-      headY = y - 80;
-      torsoY = y - 55;
-      armFrontX = x + facing * 18;
-      armFrontY = y - 60;
-    } else if (state === FighterState.KNOCKDOWN) {
-      // Airborne launch or lying flat on ground
-      if (fighter.isAirborne) {
-        headY = y - 40;
-        headX = x - facing * 25;
-        torsoY = y - 30;
-      } else {
-        // Lying on floor
-        headY = y - 15;
-        headX = x - facing * 35;
-        torsoY = y - 15;
-      }
-    } else if (state === FighterState.HITSTUN) {
-      // Head flinch back
-      headX -= facing * 8;
-      headY += 4;
-      torsoY += 2;
-    } else if (state === FighterState.BLOCKSTUN || fighter.getBlockState() !== BlockState.NONE) {
-      // Defensive guard (arms tucked in front)
-      const isCrouched = fighter.fsm.currentState === FighterState.CROUCH;
-      armFrontX = x + facing * 14;
-      armFrontY = isCrouched ? y - 65 : y - 110;
-      armBackX = x + facing * 12;
-      armBackY = isCrouched ? y - 60 : y - 105;
-    } else if (state === FighterState.ATTACK && fighter.fsm.currentAttack) {
-      const atk = fighter.fsm.currentAttack;
-
-      if (atk.id === 'HIGH_PUNCH') {
-        // Extended punch arm
-        armFrontX = x + facing * 52;
-        armFrontY = y - 118;
-      } else if (atk.id === 'LOW_PUNCH') {
-        armFrontX = x + facing * 46;
-        armFrontY = y - 85;
-      } else if (atk.id === 'LOW_KICK') {
-        legFrontX = x + facing * 54;
-      } else if (atk.id === 'HIGH_KICK') {
-        legFrontX = x + facing * 56;
-        headX -= facing * 10;
-      } else if (atk.id === 'UPPERCUT') {
-        // Rising fist to the sky!
-        headY = y - 145;
-        torsoY = y - 115;
-        armFrontX = x + facing * 25;
-        armFrontY = y - 165; // High uppercut fist!
-      } else if (atk.id === 'SWEEP') {
-        headY = y - 60;
-        torsoY = y - 40;
-        legFrontX = x + facing * 60;
-      }
-    }
-
-    // Draw Legs
-    g.lineStyle(8, darkSuitColor, 1);
-    g.lineBetween(x, torsoY + 20, legBackX, y);
-    g.lineBetween(x, torsoY + 20, legFrontX, y);
-
-    // Shin guards / Ninja wraps
-    g.lineStyle(5, primaryColor, 1);
-    g.lineBetween(legBackX, y - 18, legBackX, y);
-    g.lineBetween(legFrontX, y - 18, legFrontX, y);
-
-    // Torso / Tunic
-    const torsoHeight = state === FighterState.CROUCH ? 30 : 45;
-    g.fillStyle(darkSuitColor, 1);
-    g.fillRect(x - 16, torsoY - 15, 32, torsoHeight);
-
-    // Ninja Tunic V-Stripe (Sub-Zero Cyan / Scorpion Yellow)
-    g.fillStyle(primaryColor, 1);
-    g.fillRect(x - 12, torsoY - 15, 8, torsoHeight);
-    g.fillRect(x + 4, torsoY - 15, 8, torsoHeight);
-
-    // Waist Sash / Belt
-    g.fillStyle(accentColor, 1);
-    g.fillRect(x - 15, torsoY + torsoHeight - 18, 30, 6);
-
-    // Back Arm
-    g.lineStyle(7, darkSuitColor, 1);
-    g.lineBetween(x - facing * 8, torsoY - 5, armBackX, armBackY);
-
-    // Head (Ninja Cowl + Mask)
-    g.fillStyle(darkSuitColor, 1);
-    g.fillCircle(headX, headY, 15);
-
-    // Ninja Cowl Primary Wrap
-    g.fillStyle(primaryColor, 1);
-    g.fillRect(headX - 11, headY - 14, 22, 6); // Forehead headband
-    g.fillRect(headX + (facing === 1 ? 0 : -14), headY - 2, 14, 12); // Mask lower face
-
-    // Skin (Eye slit)
-    g.fillStyle(skinColor, 1);
-    g.fillRect(headX + (facing === 1 ? 2 : -10), headY - 6, 8, 4);
-
-    // Glowing Eye
-    g.fillStyle(0xffffff, 1);
-    g.fillRect(headX + (facing === 1 ? 4 : -8), headY - 5, 3, 2);
-
-    // Front Arm
-    g.lineStyle(7, primaryColor, 1);
-    g.lineBetween(x + facing * 8, torsoY - 5, armFrontX, armFrontY);
-
-    // Fist / Hand
-    g.fillStyle(skinColor, 1);
-    g.fillCircle(armFrontX, armFrontY, 5);
+    g.fillEllipse(x, ground + 2, (fighter.fsm.currentState === FighterState.CROUCH ? 70 : 56) * shrink, 12 * shrink);
+    this.fighterSprites[fighter.id - 1]?.update(fighter);
   }
 
   /**

@@ -1,0 +1,696 @@
+{
+  "character": "rudrani",
+  "animations": {
+    "idle": {
+      "animation": "idle",
+      "file": "rudrani_idle.png",
+      "frame_count": 4,
+      "image_size": [
+        720,
+        256
+      ],
+      "frame_size": [
+        180,
+        256
+      ],
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 180,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 180,
+          "y": 0,
+          "w": 180,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 360,
+          "y": 0,
+          "w": 180,
+          "h": 256
+        },
+        {
+          "index": 3,
+          "x": 540,
+          "y": 0,
+          "w": 180,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_idle_0.png"
+    },
+    "walk": {
+      "animation": "walk",
+      "file": "rudrani_walk.png",
+      "frame_count": 4,
+      "image_size": [
+        860,
+        251
+      ],
+      "frame_size": [
+        215,
+        251
+      ],
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 215,
+          "h": 251
+        },
+        {
+          "index": 1,
+          "x": 215,
+          "y": 0,
+          "w": 215,
+          "h": 251
+        },
+        {
+          "index": 2,
+          "x": 430,
+          "y": 0,
+          "w": 215,
+          "h": 251
+        },
+        {
+          "index": 3,
+          "x": 645,
+          "y": 0,
+          "w": 215,
+          "h": 251
+        }
+      ],
+      "source": "raw/rudrani_walk_2.png"
+    },
+    "crouch": {
+      "animation": "crouch",
+      "file": "rudrani_crouch.png",
+      "frame_count": 3,
+      "image_size": [
+        657,
+        227
+      ],
+      "frame_size": [
+        219,
+        227
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 219,
+          "h": 227
+        },
+        {
+          "index": 1,
+          "x": 219,
+          "y": 0,
+          "w": 219,
+          "h": 227
+        },
+        {
+          "index": 2,
+          "x": 438,
+          "y": 0,
+          "w": 219,
+          "h": 227
+        }
+      ],
+      "source": "raw/rudrani_crouch_0.png"
+    },
+    "jump": {
+      "animation": "jump",
+      "file": "rudrani_jump.png",
+      "frame_count": 4,
+      "image_size": [
+        532,
+        160
+      ],
+      "frame_size": [
+        133,
+        160
+      ],
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 133,
+          "h": 160
+        },
+        {
+          "index": 1,
+          "x": 133,
+          "y": 0,
+          "w": 133,
+          "h": 160
+        },
+        {
+          "index": 2,
+          "x": 266,
+          "y": 0,
+          "w": 133,
+          "h": 160
+        },
+        {
+          "index": 3,
+          "x": 399,
+          "y": 0,
+          "w": 133,
+          "h": 160
+        }
+      ],
+      "source": "raw/rudrani_jump_0.png"
+    },
+    "high_punch": {
+      "animation": "high_punch",
+      "file": "rudrani_high_punch.png",
+      "frame_count": 3,
+      "image_size": [
+        783,
+        256
+      ],
+      "frame_size": [
+        261,
+        256
+      ],
+      "fps": 14,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 261,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 261,
+          "y": 0,
+          "w": 261,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 522,
+          "y": 0,
+          "w": 261,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_high_punch_0.png"
+    },
+    "low_punch": {
+      "animation": "low_punch",
+      "file": "rudrani_low_punch.png",
+      "frame_count": 3,
+      "image_size": [
+        816,
+        249
+      ],
+      "frame_size": [
+        272,
+        249
+      ],
+      "fps": 14,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 249
+        },
+        {
+          "index": 1,
+          "x": 272,
+          "y": 0,
+          "w": 272,
+          "h": 249
+        },
+        {
+          "index": 2,
+          "x": 544,
+          "y": 0,
+          "w": 272,
+          "h": 249
+        }
+      ],
+      "source": "raw/rudrani_low_punch_0.png"
+    },
+    "low_kick": {
+      "animation": "low_kick",
+      "file": "rudrani_low_kick.png",
+      "frame_count": 3,
+      "image_size": [
+        948,
+        256
+      ],
+      "frame_size": [
+        316,
+        256
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 316,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 316,
+          "y": 0,
+          "w": 316,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 632,
+          "y": 0,
+          "w": 316,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_low_kick_0.png"
+    },
+    "high_kick": {
+      "animation": "high_kick",
+      "file": "rudrani_high_kick.png",
+      "frame_count": 3,
+      "image_size": [
+        834,
+        256
+      ],
+      "frame_size": [
+        278,
+        256
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 278,
+          "y": 0,
+          "w": 278,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 556,
+          "y": 0,
+          "w": 278,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_high_kick_0.png"
+    },
+    "uppercut": {
+      "animation": "uppercut",
+      "file": "rudrani_uppercut.png",
+      "frame_count": 4,
+      "image_size": [
+        732,
+        311
+      ],
+      "frame_size": [
+        183,
+        311
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 183,
+          "h": 311
+        },
+        {
+          "index": 1,
+          "x": 183,
+          "y": 0,
+          "w": 183,
+          "h": 311
+        },
+        {
+          "index": 2,
+          "x": 366,
+          "y": 0,
+          "w": 183,
+          "h": 311
+        },
+        {
+          "index": 3,
+          "x": 549,
+          "y": 0,
+          "w": 183,
+          "h": 311
+        }
+      ],
+      "source": "raw/rudrani_uppercut_0.png"
+    },
+    "sweep": {
+      "animation": "sweep",
+      "file": "rudrani_sweep.png",
+      "frame_count": 4,
+      "image_size": [
+        976,
+        112
+      ],
+      "frame_size": [
+        244,
+        112
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 244,
+          "h": 112
+        },
+        {
+          "index": 1,
+          "x": 244,
+          "y": 0,
+          "w": 244,
+          "h": 112
+        },
+        {
+          "index": 2,
+          "x": 488,
+          "y": 0,
+          "w": 244,
+          "h": 112
+        },
+        {
+          "index": 3,
+          "x": 732,
+          "y": 0,
+          "w": 244,
+          "h": 112
+        }
+      ],
+      "source": "raw/rudrani_sweep_0.png"
+    },
+    "jump_punch": {
+      "animation": "jump_punch",
+      "file": "rudrani_jump_punch.png",
+      "frame_count": 3,
+      "image_size": [
+        624,
+        189
+      ],
+      "frame_size": [
+        208,
+        189
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 208,
+          "h": 189
+        },
+        {
+          "index": 1,
+          "x": 208,
+          "y": 0,
+          "w": 208,
+          "h": 189
+        },
+        {
+          "index": 2,
+          "x": 416,
+          "y": 0,
+          "w": 208,
+          "h": 189
+        }
+      ],
+      "source": "raw/rudrani_jump_punch_0.png"
+    },
+    "jump_kick": {
+      "animation": "jump_kick",
+      "file": "rudrani_jump_kick.png",
+      "frame_count": 3,
+      "image_size": [
+        618,
+        179
+      ],
+      "frame_size": [
+        206,
+        179
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 179
+        },
+        {
+          "index": 1,
+          "x": 206,
+          "y": 0,
+          "w": 206,
+          "h": 179
+        },
+        {
+          "index": 2,
+          "x": 412,
+          "y": 0,
+          "w": 206,
+          "h": 179
+        }
+      ],
+      "source": "raw/rudrani_jump_kick_0.png"
+    },
+    "block": {
+      "animation": "block",
+      "file": "rudrani_block.png",
+      "frame_count": 2,
+      "image_size": [
+        308,
+        256
+      ],
+      "frame_size": [
+        154,
+        256
+      ],
+      "fps": 8,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 154,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 154,
+          "y": 0,
+          "w": 154,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_block_0.png"
+    },
+    "low_block": {
+      "animation": "low_block",
+      "file": "rudrani_low_block.png",
+      "frame_count": 2,
+      "image_size": [
+        354,
+        189
+      ],
+      "frame_size": [
+        177,
+        189
+      ],
+      "fps": 8,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 177,
+          "h": 189
+        },
+        {
+          "index": 1,
+          "x": 177,
+          "y": 0,
+          "w": 177,
+          "h": 189
+        }
+      ],
+      "source": "raw/rudrani_low_block_0.png"
+    },
+    "hit": {
+      "animation": "hit",
+      "file": "rudrani_hit.png",
+      "frame_count": 3,
+      "image_size": [
+        651,
+        256
+      ],
+      "frame_size": [
+        217,
+        256
+      ],
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 217,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 217,
+          "y": 0,
+          "w": 217,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 434,
+          "y": 0,
+          "w": 217,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_hit_0.png"
+    },
+    "knockdown": {
+      "animation": "knockdown",
+      "file": "rudrani_knockdown.png",
+      "frame_count": 4,
+      "image_size": [
+        1048,
+        220
+      ],
+      "frame_size": [
+        262,
+        220
+      ],
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 262,
+          "h": 220
+        },
+        {
+          "index": 1,
+          "x": 262,
+          "y": 0,
+          "w": 262,
+          "h": 220
+        },
+        {
+          "index": 2,
+          "x": 524,
+          "y": 0,
+          "w": 262,
+          "h": 220
+        },
+        {
+          "index": 3,
+          "x": 786,
+          "y": 0,
+          "w": 262,
+          "h": 220
+        }
+      ],
+      "source": "raw/rudrani_knockdown_0.png"
+    },
+    "getup": {
+      "animation": "getup",
+      "file": "rudrani_getup.png",
+      "frame_count": 3,
+      "image_size": [
+        804,
+        256
+      ],
+      "frame_size": [
+        268,
+        256
+      ],
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "x": 0,
+          "y": 0,
+          "w": 268,
+          "h": 256
+        },
+        {
+          "index": 1,
+          "x": 268,
+          "y": 0,
+          "w": 268,
+          "h": 256
+        },
+        {
+          "index": 2,
+          "x": 536,
+          "y": 0,
+          "w": 268,
+          "h": 256
+        }
+      ],
+      "source": "raw/rudrani_getup_0.png"
+    }
+  }
+}

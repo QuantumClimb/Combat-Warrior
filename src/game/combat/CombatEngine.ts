@@ -43,9 +43,9 @@ export class CombatEngine {
       groundY,
     };
 
-    // Sub-Zero style cyan ninja for P1, Scorpion style yellow ninja for P2
-    this.fighter1 = new FighterLogic(1, 'SUB-ZERO', 300, groundY, 1, '#00e5ff');
-    this.fighter2 = new FighterLogic(2, 'SCORPION', 660, groundY, -1, '#ffd000');
+    // Bhadran (P1) and Rudrani (P2)
+    this.fighter1 = new FighterLogic(1, 'BHADRAN', 300, groundY, 1, '#00e5ff');
+    this.fighter2 = new FighterLogic(2, 'RUDRANI', 660, groundY, -1, '#ffd000');
   }
 
   /**

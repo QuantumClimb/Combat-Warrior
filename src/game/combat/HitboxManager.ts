@@ -110,7 +110,7 @@ export class HitboxManager {
    */
   public static getPushbox(worldX: number, worldY: number, state: FighterState): Rect {
     const height = state === FighterState.CROUCH ? 85 : 140;
-    const width = 44;
+    const width = 80; // was 44; sprites are now larger, keep fighters from overlapping
     return {
       x: worldX - width / 2,
       y: worldY - height,
