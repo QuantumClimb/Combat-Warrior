@@ -1,0 +1,6 @@
+{
+  "name": "Mortal Kombat 2D Arcade Combat Engine",
+  "description": "A 60 FPS decoupled fighting game combat engine with pure FSM, input buffering, frame data, and MK mechanics built for Phaser 3 and Godot porting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
